@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(242, 248, 250);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-app {
+            height: 600px;
+            width: 420px;
+            background-color: rgb(128, 165, 235);
+            border-radius: 20px;
+            bottom: 0;
+            position: relative;
+        }
+
+        .chat-app form {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 5px;
+        }
+
+        .message-wrapper{
+            padding: 15px;
+        }
+
+        .chat-component {
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            justify-content: center;
+            align-items: center;
+            column-gap: 4px;
+        }
+
+        .chat-component input {
+            height: 30px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            outline: none;
+        }
+
+        .chat-component button {
+            padding: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 4px;
+            border: none;
+        }
+
+        #message-component {
+            padding-top: 10px;
+            padding-bottom: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+            list-style-type: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="message-wrapper">
+        <div class="chat-app">
+            <ul id="message-component"></ul>
+            <div class="messages">
+            </div>
+            <form action="" id="chat-msg-area">
+                <div class="chat-component">
+                    <input type="text" name="" id="message" placeholder="Type your message here">
+                    <button>Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        let messageArea = document.getElementById('chat-msg-area');
+        let messageList = document.getElementById('message-component');
+        let messageInput = document.getElementById('message');
+
+        messageArea.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let message = messageInput.value;
+            if(message != null){
+                socket.emit('sendingMsg', message);
+                message = "";
+                messageInput.value = "";
+            }
+        })
+
+        socket.on('chat message', (msg) => {
+            let listItem = document.createElement('li');
+            listItem.style.background = 'red'
+            listItem.style.padding = "2px"
+            listItem.style.margin = "2px"
+            listItem.style.borderRadius = '4px'
+            listItem.style.minWidth = '100px'
+            listItem.style.maxWidth = '250px'
+            listItem.style.display = 'flex'
+            listItem.style.flexDirection = 'column'
+            listItem.textContent = msg;
+            messageList.appendChild(listItem);
+            // window.scrollTo(0, document.body.get)
+        })
+    </script>
+</body>
+</html>
