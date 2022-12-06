@@ -15,13 +15,21 @@ app.get('/', (req,res) => {
 
 io.on('connection', (socket) => {
     socket["User"] = "Good-yeah";
-    console.log('A user has connected ' + socket.User);
+    // const { } = socket;
+    let dateTimeObj = new Date();
+    let hours = dateTimeObj.getHours();
+    let minutes = dateTimeObj.getMinutes();
+    let time = hours + ":" + minutes;
+    let ampm = hours >= 12 ? "pm" : 'am';
+    time = time + " " + ampm;
+    // console.log(time + ampm);
+    // console.log('A user has connected ' + socket.User);
     socket.on('disconnect', () => {
         console.log('User has disconnected')
     });
 
-    socket.on('sendingMsg', value => {
-        io.emit('chat message', value);
+    socket.on('sendingMsg', (value) => {
+        io.emit('chat message', {value, time});
     })
 })
 

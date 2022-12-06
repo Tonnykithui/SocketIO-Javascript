@@ -109,19 +109,27 @@
             }
         })
 
-        socket.on('chat message', (msg) => {
+        socket.on('chat message', ({value, time}) => {
+            console.log("This is the message : " + value);
+
+            console.log("Time : " + time);
             let listItem = document.createElement('li');
-            listItem.style.background = 'red'
-            listItem.style.padding = "2px"
+            let timeDisplay = document.createElement('p');
+
+            listItem.style.background = 'beige'
+            listItem.style.padding = "4px"
             listItem.style.margin = "2px"
             listItem.style.borderRadius = '4px'
             listItem.style.minWidth = '100px'
             listItem.style.maxWidth = '250px'
             listItem.style.display = 'flex'
             listItem.style.flexDirection = 'column'
-            listItem.textContent = msg;
+
+            listItem.textContent = value;
+            timeDisplay.textContent = time;
+            
             messageList.appendChild(listItem);
-            // window.scrollTo(0, document.body.get)
+            listItem.insertAdjacentElement("beforeend",timeDisplay);
         })
     </script>
 </body>
