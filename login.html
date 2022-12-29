@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-page {
+            height: 400px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 10px 10px lightblue;
+            padding: 20px;
+            background-color: aliceblue;
+        }
+
+        .email, .password {
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 4px;
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .button{
+            width: 100%;
+            padding: 10px;
+        }
+
+        .login-btn {
+            padding: 4px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .headline {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page">
+        <form action="" class="login">
+            <h1 class="headline">Login to We-Bonga</h1>
+            <div class="email">
+                <label for="email">Email</label>
+                <input type="text" name="" id="" placeholder="Enter your Email">
+            </div>
+            <div class="password">
+                <label for="password">Password</label>
+                <input type="text" name="" id="" placeholder="Enter your password">
+            </div>
+            <div class="button">
+                <button class="login-btn">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

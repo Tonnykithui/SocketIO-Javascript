@@ -12,6 +12,13 @@ app.get('/', (req,res) => {
     res.sendFile(__dirname + '/index.html');
 })
 
+app.get('/login', (req,res) => {
+    res.sendFile(__dirname + '/login.html');
+})
+
+app.get('/register', (req,res) => {
+    res.sendFile(__dirname + '/register.html');
+});
 
 io.on('connection', (socket) => {
     socket["User"] = "Good-yeah";
