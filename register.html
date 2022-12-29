@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+            height: 100%;
+            width: 100%;
+        }
+
+        .hero-page {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .duo-forms {
+            display: flex;
+            flex-direction: row;
+            border-radius: 8px;
+            box-shadow: 10px 10px lightblue;
+        }
+
+        .register {
+            padding: 20px;
+            background-color: aliceblue;
+            border-radius: 8px;
+            height: 400px;
+            /* margin-top: 40px; */
+        }
+
+        .name, .email {
+            height:80px;
+            width:350px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            padding: 4px;
+        }
+
+        .register-btn {
+            padding: 4px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            background-color: red;
+        }
+
+        .headline {
+            text-align: center;
+            font-size: medium;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        .button{
+            width: 100%;
+            padding: 10px;
+        }
+
+        .right-register-form {
+            background-color: blueviolet;
+            height: 300px;
+            width: 250px;
+            border-radius: 8px;
+            height: 400px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .right-register-form p {
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+            align-self: center;
+            justify-self: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="hero-page">
+        <div class="duo-forms">
+        <form action="" class="register">
+            <h1 class="headline">Welcome To We-Bonga</h1>
+            <div class="name">
+                <label for="">Name</label>
+                <input type="text" name="" id="" placeholder="Enter your name">
+            </div>
+            <div class="email">
+                <label for="">Email</label>
+                <input type="text" name="" id="" placeholder="Enter your email">
+            </div>
+            <div class="button">
+                <button class="register-btn">Register</button>
+            </div>
+        </form>
+        <form class="right-register-form">
+            <p>Next-Gen chat platform.Get started for more FUN!!!</p>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
